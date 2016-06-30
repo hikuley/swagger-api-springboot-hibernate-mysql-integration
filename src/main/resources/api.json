@@ -19,9 +19,7 @@
                 "summary": "List Person",
                 "description": "",
                 "operationId": "GET_persons",
-                "consumes": [
-                    "application/json"
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -57,7 +55,7 @@
                     "name": "personId",
                     "in": "path",
                     "required": true,
-                    "type": "string"
+                    "type": "integer"
                 }
             ],
             "get": {
@@ -67,9 +65,7 @@
                 "summary": "Get Person",
                 "description": "",
                 "operationId": "GET_person-personId",
-                "consumes": [
-                    "application/json"
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -97,7 +93,7 @@
                 "tags": [
                     "Person"
                 ],
-                "summary": "Update Todo",
+                "summary": "Update Person",
                 "description": "",
                 "operationId": "PUT_person-personId",
                 "consumes": [
@@ -120,45 +116,6 @@
                         "description": "",
                         "schema": {
                             "$ref": "#/definitions/person"
-                        }
-                    },
-                    "403": {
-                        "description": "",
-                        "schema": {
-                            "type": "object",
-                            "properties": {}
-                        }
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "Person"
-                ],
-                "summary": "Delete Person",
-                "description": "",
-                "operationId": "DELETE_person-personId",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "schema": {
-                            "$ref": "#/definitions/person"
-                        }
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "",
-                        "schema": {
-                            "type": "object",
-                            "properties": {}
                         }
                     }
                 }
@@ -196,6 +153,38 @@
                         }
                     },
                     "403": {
+                        "description": "",
+                        "schema": {
+                            "type": "object",
+                            "properties": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/person/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "delete": {
+                "tags": [
+                    "Person"
+                ],
+                "summary": "Delete Person",
+                "description": "",
+                "operationId": "DELETE_person-id",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "responses": {
+                    "204": {
                         "description": "",
                         "schema": {
                             "type": "object",
