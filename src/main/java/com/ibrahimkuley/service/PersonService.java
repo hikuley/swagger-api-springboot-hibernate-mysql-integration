@@ -2,20 +2,22 @@ package com.ibrahimkuley.service;
 
 import com.ibrahimkuley.rest.model.Person;
 
-import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * Created by halil_000 on 6/30/2016.
  */
+
 public interface PersonService {
 
     Person create(Person person);
 
-    Person get(BigDecimal id);
+    Person get(String id);
 
-    void delete(BigDecimal id);
+    void delete(String id);
 
+    Person update(Person person);
 
-
+    List<Person> getPersons();
 
 }

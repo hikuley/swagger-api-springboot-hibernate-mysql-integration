@@ -17,7 +17,7 @@ import static org.springframework.http.MediaType.*;
 @Controller
 @RequestMapping(value = "/persons", produces = {APPLICATION_JSON_VALUE})
 @Api(value = "/persons", description = "the persons API")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.SpringBootServerCodegen", date = "2016-06-30T08:21:20.533Z")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.SpringBootServerCodegen", date = "2016-06-30T09:34:50.658Z")
 public class PersonsApi {
 
   @ApiOperation(value = "List Person", notes = "", response = Person.class, responseContainer = "List")
