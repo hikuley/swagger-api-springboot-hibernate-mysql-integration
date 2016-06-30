@@ -10,9 +10,11 @@
 
     <properties>
         <main.basedir>${basedir}/../..</main.basedir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <swagger-core-version>1.5.8</swagger-core-version>
         <springfox-version>2.4.0</springfox-version>
         <swagger-maven-plugin-version>3.1.0</swagger-maven-plugin-version>
+        <hibernate.version>5.0.5.Final</hibernate.version>
     </properties>
 
     <parent>
@@ -26,6 +28,26 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!--This dependencies are related data-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <!--This dependencies are related data-->
+
+        <!--This dependency related mysql-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <!--This dependency related mysql-->
 
 
         <!--SpringFox dependencies-->

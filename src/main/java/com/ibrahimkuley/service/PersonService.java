@@ -1,23 +1,22 @@
 package com.ibrahimkuley.service;
 
-import com.ibrahimkuley.rest.model.Person;
+import com.ibrahimkuley.rest.model.PersonDto;
 
 import java.util.List;
 
 /**
  * Created by halil_000 on 6/30/2016.
  */
-
 public interface PersonService {
 
-    Person create(Person person);
+    PersonDto create(PersonDto personDto);
 
-    Person get(Integer id);
+    PersonDto get(Integer id);
 
     void delete(String id);
 
-    Person update(Person person);
+    PersonDto update(PersonDto personDto);
 
-    List<Person> getPersons();
+    List<PersonDto> getPersons();
 
 }

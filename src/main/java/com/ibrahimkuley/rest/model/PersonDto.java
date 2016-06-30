@@ -11,7 +11,7 @@ import java.util.Objects;
 
 @ApiModel(description = "")
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.SpringBootServerCodegen", date = "2016-06-30T12:45:00.864Z")
-public class Person  {
+public class PersonDto {
   
   private BigDecimal id = null;
   private String name = null;
@@ -97,13 +97,13 @@ public class Person  {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Person person = (Person) o;
-    return Objects.equals(id, person.id) &&
-        Objects.equals(name, person.name) &&
-        Objects.equals(createdAt, person.createdAt) &&
-        Objects.equals(updatedAt, person.updatedAt) &&
-        Objects.equals(email, person.email) &&
-        Objects.equals(age, person.age);
+    PersonDto personDto = (PersonDto) o;
+    return Objects.equals(id, personDto.id) &&
+        Objects.equals(name, personDto.name) &&
+        Objects.equals(createdAt, personDto.createdAt) &&
+        Objects.equals(updatedAt, personDto.updatedAt) &&
+        Objects.equals(email, personDto.email) &&
+        Objects.equals(age, personDto.age);
   }
 
   @Override
