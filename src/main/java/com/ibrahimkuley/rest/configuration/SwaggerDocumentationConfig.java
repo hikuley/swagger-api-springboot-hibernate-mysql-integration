@@ -1,4 +1,4 @@
-package io.swagger.configuration;
+package com.ibrahimkuley.rest.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,7 +30,7 @@ public class SwaggerDocumentationConfig {
     public Docket customImplementation(){
 		return new Docket(DocumentationType.SWAGGER_2)
 				.select()
-					.apis(RequestHandlerSelectors.basePackage("io.swagger.api"))
+					.apis(RequestHandlerSelectors.basePackage("com.ibrahimkuley.rest.api"))
 					.build()
 				.apiInfo(apiInfo());
     }

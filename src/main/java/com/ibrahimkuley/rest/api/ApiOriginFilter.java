@@ -1,4 +1,4 @@
-package io.swagger.api;
+package com.ibrahimkuley.rest.api;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletResponse;

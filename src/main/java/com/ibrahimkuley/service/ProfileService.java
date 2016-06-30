@@ -1,6 +1,6 @@
-package com.ibrahimkuley;
+package com.ibrahimkuley.service;
 
-import io.swagger.model.Profile;
+import com.ibrahimkuley.rest.model.Profile;
 import org.springframework.stereotype.Service;
 
 /**

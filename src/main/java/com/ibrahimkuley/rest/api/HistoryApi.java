@@ -1,7 +1,7 @@
-package io.swagger.api;
+package com.ibrahimkuley.rest.api;
 
+import com.ibrahimkuley.rest.model.Activities;
 import io.swagger.annotations.*;
-import io.swagger.model.Activities;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

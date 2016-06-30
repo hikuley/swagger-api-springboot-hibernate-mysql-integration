@@ -1,4 +1,4 @@
-package io.swagger.api;
+package com.ibrahimkuley.rest.api;
 
 import javax.xml.bind.annotation.XmlTransient;
 

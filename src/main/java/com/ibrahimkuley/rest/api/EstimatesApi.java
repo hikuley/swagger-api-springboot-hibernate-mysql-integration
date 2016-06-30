@@ -1,8 +1,8 @@
-package io.swagger.api;
+package com.ibrahimkuley.rest.api;
 
+import com.ibrahimkuley.rest.model.Product;
 import io.swagger.annotations.*;
-import io.swagger.model.PriceEstimate;
-import io.swagger.model.Product;
+import com.ibrahimkuley.rest.model.PriceEstimate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

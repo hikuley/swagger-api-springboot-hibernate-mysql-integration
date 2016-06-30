@@ -18,7 +18,7 @@ import javax.servlet.ServletContextListener;
 
 @SpringBootApplication
 @EnableSwagger2
-@ComponentScan(basePackages = {"com.ibrahimkuley","io.swagger."})
+@ComponentScan(basePackages = {"com.ibrahimkuley"})
 public class AppRun {
 
     private static Log logger = LogFactory.getLog(AppRun.class);
