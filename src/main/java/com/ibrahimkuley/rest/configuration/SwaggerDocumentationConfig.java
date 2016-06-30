@@ -2,6 +2,7 @@ package com.ibrahimkuley.rest.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -10,18 +11,19 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
 
+
 @Configuration
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.SpringBootServerCodegen", date = "2016-06-30T00:00:55.606Z")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.SpringBootServerCodegen", date = "2016-06-30T08:21:20.533Z")
 public class SwaggerDocumentationConfig {
 
     ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-            .title("Uber API")
-            .description("Move your app forward with the Uber API")
+            .title("demo rest api")
+            .description("")
             .license("")
             .licenseUrl("")
             .termsOfServiceUrl("")
-            .version("1.0.0")
+            .version("")
             .contact(new Contact("","", ""))
             .build();
     }
