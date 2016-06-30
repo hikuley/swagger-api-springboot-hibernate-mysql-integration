@@ -12,7 +12,7 @@ public interface PersonService {
 
     Person create(Person person);
 
-    Person get(String id);
+    Person get(Integer id);
 
     void delete(String id);
 

@@ -18,7 +18,7 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public Person get(String id) {
+    public Person get(Integer id) {
         Person person = new Person();
         person.setName("Halil");
         person.setAge(BigDecimal.valueOf(25));
