@@ -13,12 +13,12 @@ import springfox.documentation.spring.web.plugins.Docket;
 
 
 @Configuration
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.SpringBootServerCodegen", date = "2016-06-30T12:45:00.864Z")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.SpringBootServerCodegen", date = "2016-07-11T12:23:26.753Z")
 public class SwaggerDocumentationConfig {
 
     ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-            .title("demo rest api")
+            .title("demo rest api-person")
             .description("")
             .license("")
             .licenseUrl("")

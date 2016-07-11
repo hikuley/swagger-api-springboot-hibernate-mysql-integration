@@ -14,9 +14,10 @@ import java.util.Date;
 public class Person {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id = null;
     private String name = null;
+    private String surname = null;
     private Date createdAt = null;
     private Date updatedAt = null;
     private String email = null;
@@ -36,6 +37,14 @@ public class Person {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public Date getCreatedAt() {

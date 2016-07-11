@@ -6,7 +6,6 @@ import com.ibrahimkuley.rest.model.PersonDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -26,8 +25,8 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public PersonDto get(Integer id) {
         Person person = personDao.findOne(id);
-        PersonDto personDto = parseToDto(person);
-        return personDto;
+//        PersonDto personDto = parseToDto(person);
+        return null;
     }
 
     @Override
@@ -37,9 +36,9 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public PersonDto update(PersonDto personDto) {
-        Person person = personDao.save(parseToEntity(personDto));
-        PersonDto resultDto = parseToDto(person);
-        return resultDto;
+//        Person person = personDao.save(parseToEntity(personDto));
+//        PersonDto resultDto = parseToDto(person);
+        return null;
     }
 
     @Override
@@ -47,27 +46,5 @@ public class PersonServiceImpl implements PersonService {
         return null;
     }
 
-
-    public PersonDto parseToDto(Person person) {
-        PersonDto personDto = new PersonDto();
-        personDto.setId(BigDecimal.valueOf(person.getId()));
-        personDto.setName(person.getName());
-        personDto.setEmail(person.getEmail());
-        personDto.setAge(BigDecimal.valueOf(person.getAge()));
-        personDto.setCreatedAt(person.getCreatedAt());
-        personDto.setUpdatedAt(person.getUpdatedAt());
-        return personDto;
-    }
-
-    public Person parseToEntity(PersonDto personDto) {
-        Person person = new Person();
-        person.setId(Integer.valueOf(String.valueOf(personDto.getId())));
-        person.setName(personDto.getName());
-        person.setEmail(personDto.getEmail());
-        person.setAge(person.getAge());
-        person.setCreatedAt(personDto.getCreatedAt());
-        person.setUpdatedAt(personDto.getUpdatedAt());
-        return person;
-    }
 
 }

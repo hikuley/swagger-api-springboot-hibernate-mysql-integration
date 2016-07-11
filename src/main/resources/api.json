@@ -6,7 +6,7 @@
     "host": "todos.stoplight.io",
     "info": {
         "version": "",
-        "title": "demo rest api",
+        "title": "demo rest api-person",
         "description": ""
     },
     "paths": {
@@ -30,21 +30,20 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/person"
+                                "$ref": "#/definitions/personDto"
                             }
-                        },
-                        "examples": {
-                            "application/json": [
-                                {
-                                    "id": 17,
-                                    "name": "new lit item",
-                                    "completed": null,
-                                    "completed_at": null,
-                                    "url": "https://todos.stoplight.io/todos/17",
-                                    "created_at": "2014-08-28T14:14:28.494Z"
-                                }
-                            ]
                         }
+                    }
+                },
+                "x-stoplight": {
+                    "id": "GET_person-all",
+                    "beforeScript": null,
+                    "afterScript": null,
+                    "public": true,
+                    "mock": {
+                        "enabled": true,
+                        "dynamic": false,
+                        "statusCode": 200
                     }
                 }
             }
@@ -74,18 +73,19 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/person"
-                        },
-                        "examples": {
-                            "application/json": {
-                                "id": 17,
-                                "name": "new lit item",
-                                "completed": null,
-                                "completed_at": null,
-                                "created_at": "2014-08-28T14:14:28.494Z",
-                                "updated_at": "2014-08-28T14:14:28.494Z"
-                            }
+                            "$ref": "#/definitions/personDto"
                         }
+                    }
+                },
+                "x-stoplight": {
+                    "id": "GET_person-id",
+                    "beforeScript": null,
+                    "afterScript": "function (ctx, request, response) {\n  // Store the latest fetched todo id in variables\n  // for easy use.\n  if (response.statusCode.get() == 200) {\n    var body = response.body.get();\n    SL.variables.lastTodoId = body.id;\n  }\n}",
+                    "public": true,
+                    "mock": {
+                        "enabled": false,
+                        "dynamic": false,
+                        "statusCode": 200
                     }
                 }
             }
@@ -110,7 +110,7 @@
                         "name": "body",
                         "in": "body",
                         "schema": {
-                            "$ref": "#/definitions/person"
+                            "$ref": "#/definitions/personDto"
                         }
                     }
                 ],
@@ -118,7 +118,7 @@
                     "201": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/person"
+                            "$ref": "#/definitions/personDto"
                         }
                     },
                     "403": {
@@ -127,6 +127,17 @@
                             "type": "object",
                             "properties": {}
                         }
+                    }
+                },
+                "x-stoplight": {
+                    "id": "POST_person",
+                    "beforeScript": null,
+                    "afterScript": "function (ctx, request, response) {\n  // If we successfully created a todo, store \n  // it's id as a variable for later use.\n  if (response.statusCode.get() == 200) {\n    var body = response.body.get();\n    SL.variables.lastTodoId = body.id;\n  }\n}",
+                    "public": true,
+                    "mock": {
+                        "enabled": false,
+                        "dynamic": false,
+                        "statusCode": 200
                     }
                 }
             },
@@ -148,7 +159,7 @@
                         "name": "body",
                         "in": "body",
                         "schema": {
-                            "$ref": "#/definitions/person"
+                            "$ref": "#/definitions/personDto"
                         }
                     }
                 ],
@@ -156,8 +167,19 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/person"
+                            "$ref": "#/definitions/personDto"
                         }
+                    }
+                },
+                "x-stoplight": {
+                    "id": "PUT_person",
+                    "beforeScript": null,
+                    "afterScript": null,
+                    "public": true,
+                    "mock": {
+                        "enabled": false,
+                        "dynamic": false,
+                        "statusCode": 200
                     }
                 }
             },
@@ -181,12 +203,23 @@
                             "properties": {}
                         }
                     }
+                },
+                "x-stoplight": {
+                    "id": "DELETE_person",
+                    "beforeScript": null,
+                    "afterScript": null,
+                    "public": false,
+                    "mock": {
+                        "enabled": false,
+                        "dynamic": false,
+                        "statusCode": 200
+                    }
                 }
             }
         }
     },
     "definitions": {
-        "person": {
+        "personDto": {
             "type": "object",
             "properties": {
                 "id": {
@@ -228,8 +261,86 @@
             "required": [
                 "id",
                 "name",
-                "created_at"
-            ]
+                "created_at",
+                "email"
+            ],
+            "x-stoplight": {
+                "id": "personDto",
+                "name": "PersonDto",
+                "summary": "",
+                "description": "",
+                "public": true
+            }
+        }
+    },
+    "x-stoplight": {
+        "beforeScript": "function(ctx, request) {\n  // Find this in the Functions list. This extends the API to enable mocking if\n  // \"?mock={code}\" is present in the query string. ie {host}/todos?mock=200.\n  SL.utilities.queryStringMocking(ctx, request);\n\n  // This runs your endpoint middleware before script, if applicable.\n  // Removing this means your endpoint before scripts will not be run!\n  SL.runEndpoint();\n}",
+        "afterScript": "function(ctx, request, response) {\n  // This runs your endpoint middleware after script, if applicable.\n  // Removing this means your endpoint after scripts will not be run!\n  SL.runEndpoint();\n}",
+        "version": {
+            "groups": {
+                "docs": [
+                    {
+                        "name": "Person",
+                        "items": [
+                            {
+                                "_id": "personDto",
+                                "type": "schemas"
+                            },
+                            {
+                                "_id": "GET_person-all",
+                                "type": "endpoints"
+                            },
+                            {
+                                "_id": "GET_person-id",
+                                "type": "endpoints"
+                            },
+                            {
+                                "_id": "POST_person",
+                                "type": "endpoints"
+                            },
+                            {
+                                "_id": "PUT_person",
+                                "type": "endpoints"
+                            },
+                            {
+                                "_id": "DELETE_person",
+                                "type": "endpoints"
+                            }
+                        ],
+                        "divider": false
+                    }
+                ],
+                "utilFuncs": [],
+                "traits": [],
+                "tests": []
+            }
+        },
+        "functions": {
+            "hijackWithValidationErrors": {
+                "name": "hijackWithValidationErrors",
+                "description": "",
+                "script": "function (ctx, request) {\n  var messages = request.validate();\n  \n  // did the request validation fail?\n  if (!request.valid.get()) {\n    // respond immediately with the validation error messages\n    // this request will never hit the end api server\n    request.hijack(400, \"application/json\", messages)\n  }\n}"
+            },
+            "addRandomLatency": {
+                "name": "addRandomLatency",
+                "description": "",
+                "script": "function (min, max) {\n  SL.sleep(SL.rand(min, max))\n}"
+            },
+            "queryStringMocking": {
+                "name": "queryStringMocking",
+                "description": "",
+                "script": "function (ctx, request) {\n  // For example, adding ?mock=200 to a request url will enable mocking,\n  // using the example endpoint response for the 200 status code.\n  var mock = request.url.query.get(\"mock\")\n  if (mock) {\n    ctx.mock.set(true, mock)\n  }\n}"
+            },
+            "mapPath": {
+                "name": "mapPath",
+                "description": "",
+                "script": "function (ctx, request, originSubpath, targetSubpath) {\n  // for example, mapPath(ctx, request, \"users\", \"members\") \n  // will rewrite an incoming request from /users/123 to /members/123.\n  var path = request.url.path.get();\n  if (path.indexOf(originSubpath) !== -1) {\n     path.replace(originSubpath, targetSubpath);\n     request.url.path.set(path);\n  }\n}"
+            }
+        },
+        "textSections": {},
+        "mock": {
+            "enabled": false,
+            "dynamic": false
         }
     }
 }
