@@ -13,7 +13,7 @@ public interface PersonService {
 
     PersonDto get(Integer id);
 
-    void delete(String id);
+    void delete(Integer id);
 
     PersonDto update(PersonDto personDto);
 

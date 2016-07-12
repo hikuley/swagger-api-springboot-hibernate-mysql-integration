@@ -30,7 +30,7 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public void delete(String id) {
+    public void delete(Integer id) {
         personDao.delete(Integer.valueOf(id));
     }
 
